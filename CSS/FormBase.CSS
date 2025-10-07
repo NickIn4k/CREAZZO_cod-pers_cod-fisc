@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f7f7;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
+}
+
+h2{
+    color: #0077cc;
+}
+
+form {
+    background-color: #fff;
+    width: 400px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* Label generiche sopra agli input */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Input e select */
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* RADIO e CHECKBOX: inline */
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Label solo per checkbox o radio: inline */
+label.inline {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+    color: #333;
+}
+
+/* Bottone “Seleziona File” */
+button {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0077cc;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+    display: block;
+}
+
+/* Bottoni di invio e reset */
+input[type="submit"],
+input[type="reset"] {
+    margin-top: 20px;
+    margin-right: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0077cc;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Effetto hover per i bottoni */
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #005fa3;
+}
+
+/* Textarea */
+textarea {
+    margin-top: 5px;
+    resize: vertical;
+}
+
+/* Footer */
+footer {
+    border-radius: 25px;
+    background-color: #5dd1ff46;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 50px;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+
+footer a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background-color: #5dd1ff46;
+    padding: 15px 0 20px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+
+/* Titolo principale */
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    color: #0077cc;
+}
+
+/* Barra di navigazione */
+nav {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Lista della navbar */
+ul.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Elementi orizzontali */
+.navbar-el {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Link come pulsanti */
+.navbar-el a {
+    display: inline-block;
+    background-color: #0077cc;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+}

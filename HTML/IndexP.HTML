@@ -3,19 +3,65 @@
     <head>
         <meta charset = "UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Esercizio 1</title>
-        <link rel="stylesheet" type="text/css" href="../../CommonStyle/FormBase.css">
+        <title>Codice Personale</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/FormBase.CSS">
+        <script src="../Script/js/library.js"></script>
     </head>
     <body>
         <header>
+            <h1>Calcolo Codice Personale</h1>
             <nav>
-
+                <ul class="navbar">
+                    <li class="navbar-el"><a href="https://www.itisrossi.edu.it/">ITIS "A.Rossi"</a></li> 
+                    <li class="navbar-el"><a href="IndexF.HTML">Form Codice Fiscale</a></li>
+                </ul>
             </nav>
         </header>
-        <body>
+        <main>
             <form method="post" action="Script/php/codice_personale.php">
+                <!-- nome + cognome [max 50 char] -->
+                <label for="nominativo">Cognome e Nome</label><br>
+                <input type="text" name="nominativo" maxlength="50" required><br>
 
+                <!-- sesso -->
+                <label for="sesso">Sesso</label>
+                <input type="radio" name="sesso" value="uomo" id="uomo" required>
+                <label for="uomo" class="inline">Uomo</label><br>
+                <input type="radio" name="sesso" value="donna" id="donna">
+                <label for="donna"class="inline">Donna</label><br>
+
+                <!-- nascita + CAP da file -->
+                <label for="luogo">Luogo di nascita</label>
+                <button onclick="caricaFile()">Seleziona File</button>
+                <select name="luogo" id="luogo"></select><br>
+                <!-- data di nascita -->
+                <label for="nascita">Data di nascita</label><br>
+                <input type="date" name="nascita" id="nascita" required>
+
+                <!-- ateneo -->
+                <label for="ateneo">Ateneo</label><br>
+                <select name="ateneo">
+                    <option name="verona" value="verona">Verona</option>
+                    <option name="venezia" value="venezia">Venezia</option>
+                    <option name="padova" value="padova">Padova</option>
+                </select>
+
+                <!-- studente lavoratore -->
+                <label for="stud-lav">Studente Lavoratore?</label>
+                <input type="checkbox" name="stud-lav" id="stud-lav" value="true" onchange="attivaTextArea()"><br>
+
+                <!-- textarea di descrizione -->
+                <textarea maxlength="80" placeholder="Descrizione del lavoro svolto" id="desc" disabled></textarea><br>
+
+                <!-- Invio e reset -->
+                <input type="submit">
+                <input type="reset">
             </form>
-        </body>
+        </main>
+        <footer>
+            <h2>Credits</h2>
+            <p>Nicola Creazzo</p>
+            <a href="mailto:10934103@itisrossi.iv.it">Scrivi una mail!</a>
+        </footer> 
     </body>
 </html>
