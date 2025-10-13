@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Codice Fiscale</title>
         <link rel="stylesheet" type="text/css" href="../CSS/FormBase.CSS">
-        <script src="../Script/js/library.js"></script>
     </head>
     <body>
         <header>
@@ -18,10 +17,10 @@
             </nav>
         </header>
         <main>
-            <form method="post" action="Script/php/codice_fiscale.php">
+            <form id="form" method="post" onsubmit="invio(event)" action="../Script/php/codice_fiscale.php">
                 <!-- nome + cognome [max 50 char] -->
                 <label for="nominativo">Cognome e Nome</label><br>
-                <input type="text" name="nominativo" maxlength="50" required><br>
+                <input type="text" name="nominativo" id="nominativo" oninput="controlloNome(this)" maxlength="50" required><br>
 
                 <!-- sesso -->
                 <label for="sesso">Sesso</label>
@@ -30,10 +29,11 @@
                 <input type="radio" name="sesso" value="donna" id="donna">
                 <label for="donna"class="inline">Donna</label><br>
 
-                <!-- nascita + CAP da file -->
+                <!-- nascita + codice da file -->
+                <button type="button" onclick="caricaFile()">Seleziona File</button>
                 <label for="luogo">Luogo di nascita</label>
-                <button onclick="caricaFile()">Seleziona File</button>
-                <select name="luogo" id="luogo"></select><br>
+                <select name="luogo" id="luogo" disabled></select><br>
+
                 <!-- data di nascita -->
                 <label for="nascita">Data di nascita</label><br>
                 <input type="date" name="nascita" id="nascita" required>
@@ -41,10 +41,14 @@
                 <!-- ateneo -->
                 <label for="ateneo">Ateneo</label><br>
                 <select name="ateneo">
-                    <option name="verona" value="verona">Verona</option>
-                    <option name="venezia" value="venezia">Venezia</option>
-                    <option name="padova" value="padova">Padova</option>
+                    <option name="verona" value="verona">Università degli Studi di Verona</option>
+                    <option name="venezia" value="venezia">Università “Ca' Foscari” di Venezia</option>
+                    <option name="padova" value="padova">Università degli Studi di Padova</option>
                 </select>
+
+                <!-- CAP -->
+                <label for="nascita">CAP</label><br>
+                <input type="text" name="CAP" id="CAP" oninput="controlloCAP(this)" required maxlength="5">
 
                 <!-- studente lavoratore -->
                 <label for="stud-lav">Studente Lavoratore?</label>
@@ -63,5 +67,8 @@
             <p>Nicola Creazzo</p>
             <a href="mailto:10934103@itisrossi.iv.it">Scrivi una mail!</a>
         </footer> 
+
+        <!-- script in fondo per far caricare il body prima -->
+        <script src="../Script/js/library.js"></script>
     </body>
 </html>
