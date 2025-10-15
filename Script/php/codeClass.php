@@ -1,12 +1,12 @@
 <?php
     class Code{
         // regex consonanti
-        function estraiConsonanti($str) {
+        function togliConsonanti($str) {
             return preg_replace('/[^BCDFGHJKLMNPQRSTVWXYZ]/i', '', $str);
         }
 
         // regex vocali
-        function estraiVocali($str) {
+        function togliVocali($str) {
             return preg_replace('/[^AEIOU]/i', '', $str);
         }
 
@@ -15,14 +15,14 @@
             // 3 consonanti
             // in caso vocali
             // in caso X
-            $cod = $this->estraiConsonanti($cognome) . $this->estraiVocali($cognome) . 'XXX';
+            $cod = $this->togliConsonanti($cognome) . $this->togliVocali($cognome) . 'XXX';
             // return 3 char
             return strtoupper(substr($cod, 0, 3));
         }
 
         // estrazione nome
         function estraiNome($nome) {
-            $cons = $this->estraiConsonanti($nome);
+            $cons = $this->togliConsonanti($nome);
             if (strlen($cons) >= 4) {
                 // 4 consonanti -> 1,3,4
                 $cod = $cons[0] . $cons[2] . $cons[3];
@@ -30,7 +30,7 @@
                 // 3 consonanti
                 // in caso vocali
                 // in caso X
-                $cod = $cons . $this->estraiVocali($nome) . 'XXX';
+                $cod = $cons . $this->togliVocali($nome) . 'XXX';
                 // return 3 char
                 $cod = substr($cod, 0, 3);
             }

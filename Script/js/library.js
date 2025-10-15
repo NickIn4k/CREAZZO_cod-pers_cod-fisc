@@ -1,7 +1,7 @@
 // Apertura finestra dialogo => Fyle system
 // Prendi l'elemento con id="luogo" e inserisci N <option> dal file
 // Utilizzo l'API di FileSystemHandle: https://developer.mozilla.org/en-US/docs/Web/API/FileSystemHandle
-async function caricaFile(){
+async function caricaFile1(){
     // Apertura finestra di dialogo
     let [fileHandle] = await window.showOpenFilePicker();  // let[nome] => Destructuring => struttura al contrario di un oggetto
     let fileData = await fileHandle.getFile();
@@ -9,6 +9,7 @@ async function caricaFile(){
     // Testo da file
     let text = await fileData.text();
     let Elementi = text.split("\r\n");
+    console.log(); 
     
     // Creazione del select
     const select = document.getElementById("luogo");
@@ -20,6 +21,30 @@ async function caricaFile(){
     }
 
     select.disabled = false;
+}
+
+function caricaFile(input){
+    // Testo da file
+    let inputfile = input.files[0];
+    if (inputfile){
+        const lettore = new FileReader();
+        lettore.readAsText(inputfile);
+        lettore.onload = function (){
+            var testo = lettore.result;
+            let Elementi = text.split("/\r?\n/");
+            
+            // Creazione del select
+            const select = document.getElementById("luogo");
+            select.innerHTML = "";
+            for(let i=0; i<Elementi.length; i++){
+                let option = document.createElement("option");
+                option.textContent = Elementi[i].replace(";", " - ");
+                select.appendChild(option);
+            }
+
+            select.disabled = false;
+        }
+    }
 }
 
 function controlloNome(input) {
